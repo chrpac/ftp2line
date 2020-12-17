@@ -33,7 +33,7 @@ services:
     container_name: notify
     restart: always
     volumes:
-      - img-data:/usr/img
+      - img-data:/usr/src/app/img
     network_mode: bridge
     logging:
       driver: syslog
