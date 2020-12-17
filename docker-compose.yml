@@ -18,7 +18,7 @@ services:
       - "47400-47470:47400-47470"
     environment:
       FTP_USER: dahua
-      PASV_ADDRESS: 10.29.167.244
+      PASV_ADDRESS: 127.0.0.1
       FTP_PASS: dahua
     network_mode: bridge
     logging:
