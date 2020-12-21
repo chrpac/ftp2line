@@ -25,6 +25,7 @@ const lineNotify = (message, file) => {
       console.log(err);
     } else {
       console.log({
+        file: file,
         body: body
       });
     }
@@ -33,7 +34,7 @@ const lineNotify = (message, file) => {
 
 
 watcher.on('create', function(file, stats) {
-    lineNotify('Hello World', '/usr/src/app/img/Capture.JPG')
+    lineNotify('Hello World', file)
     console.log(file + ' was created')
   });
 
