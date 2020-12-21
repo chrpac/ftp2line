@@ -8,6 +8,7 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "form-data": "^3.0.0",
     "hound": "^1.0.5",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
