@@ -1,7 +1,7 @@
 const request = require('request')
 const fs = require('fs')
-//hound = require('hound')
-//watcher = hound.watch('/usr/src/app/img')
+hound = require('hound')
+watcher = hound.watch('/usr/src/app/img')
 
 token = '8L5ACVF6JsdZPlQYgecJ3M7EhIwIrurFuo7XED1YqME';
 message = 'HelloWorld';
