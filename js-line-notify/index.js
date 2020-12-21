@@ -40,11 +40,8 @@ const watcher = chokidar.watch('/usr/src/app/img/', {
 });
 
 watcher
-  .on('add', path => {
-    log(`File ${path} has been added`);
-    lineNotify('Hello World', path)
-  })
-  .on('change', path => log(`File ${path} has been changed`))
+  .on('add', path => {log(`File ${path} has been added`)})
+  .on('change', path => lineNotify('Hello World', path))
   .on('unlink', path => log(`File ${path} has been removed`));
 
 // watcher.on('create', function(file, stats) {
