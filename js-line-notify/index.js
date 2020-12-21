@@ -1,7 +1,7 @@
 const request = require('request')
 const fs = require('fs')
-hound = require('hound')
-watcher = hound.watch('/usr/src/app/img')
+// hound = require('hound')
+// watcher = hound.watch('/usr/src/app/img')
 
 token = '8L5ACVF6JsdZPlQYgecJ3M7EhIwIrurFuo7XED1YqME';
 message = 'HelloWorld';
@@ -32,10 +32,14 @@ const lineNotify = (message, file) => {
   });
 }
 
+fs.watch('/usr/src/app/img', (eventType,filename)=>{
+  console.log("\nThe file", filename, "was modified!"); 
+  console.log("The type of change was:", eventType); 
+});
 
-watcher.on('create', function(file, stats) {
-    lineNotify('Hello World', file)
-    console.log(file + ' was created')
-  });
+// watcher.on('create', function(file, stats) {
+//     lineNotify('Hello World', file)
+//     console.log(file + ' was created')
+//   });
 
 //lineNotify('Hello Haha','default_image.png')
