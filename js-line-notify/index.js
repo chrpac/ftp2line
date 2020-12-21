@@ -25,7 +25,6 @@ const lineNotify = (message, file) => {
       console.log(err);
     } else {
       console.log({
-        imageFile: fs.createReadStream(file),
         body: body
       });
     }
