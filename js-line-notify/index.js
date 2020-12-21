@@ -1,7 +1,9 @@
 const request = require('request')
 const fs = require('fs')
+const chokidar = require('chokidar');
 // hound = require('hound')
 // watcher = hound.watch('/usr/src/app/img')
+const log = console.log.bind(console);
 
 token = '8L5ACVF6JsdZPlQYgecJ3M7EhIwIrurFuo7XED1YqME';
 message = 'HelloWorld';
@@ -32,10 +34,15 @@ const lineNotify = (message, file) => {
   });
 }
 
-fs.watch('/usr/src/app/img', (eventType,filename)=>{
-  console.log("\nThe file", filename, "was modified!"); 
-  console.log("The type of change was:", eventType); 
+const watcher = chokidar.watch('/usr/src/app/img/', {
+  ignored: /(^|[\/\\])\../, // ignore dotfiles
+  persistent: true
 });
+
+watcher
+  .on('add', path => log(`File ${path} has been added`))
+  .on('change', path => log(`File ${path} has been changed`))
+  .on('unlink', path => log(`File ${path} has been removed`));
 
 // watcher.on('create', function(file, stats) {
 //     lineNotify('Hello World', file)
