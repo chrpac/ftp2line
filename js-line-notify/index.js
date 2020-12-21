@@ -1,9 +1,6 @@
 const request = require('request')
 const fs = require('fs')
 const chokidar = require('chokidar');
-// hound = require('hound')
-// watcher = hound.watch('/usr/src/app/img')
-const log = console.log.bind(console);
 
 token = '8L5ACVF6JsdZPlQYgecJ3M7EhIwIrurFuo7XED1YqME';
 message = 'HelloWorld';
@@ -40,13 +37,5 @@ const watcher = chokidar.watch('/usr/src/app/img/', {
 });
 
 watcher
-  .on('add', path => {log(`File ${path} has been added`)})
-  .on('change', path => lineNotify('Hello World', path))
-  .on('unlink', path => log(`File ${path} has been removed`));
+  .on('change', path => lineNotify('Hello World', path));
 
-// watcher.on('create', function(file, stats) {
-//     lineNotify('Hello World', file)
-//     console.log(file + ' was created')
-//   });
-
-//lineNotify('Hello Haha','default_image.png')
