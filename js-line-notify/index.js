@@ -11,7 +11,7 @@ const lineNotify = (message, file) => {
     method: 'POST',
     uri: 'https://notify-api.line.me/api/notify',
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'multipart/formdata'
     },
     auth: {
       'bearer': token
@@ -25,7 +25,7 @@ const lineNotify = (message, file) => {
       console.log(err);
     } else {
       console.log({
-        httpResponse: httpResponse,
+        imageFile: fs.createReadStream(file),
         body: body
       });
     }
