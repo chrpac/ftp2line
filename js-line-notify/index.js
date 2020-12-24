@@ -2,7 +2,7 @@ const request = require('request')
 const fs = require('fs')
 const chokidar = require('chokidar');
 
-token = '8L5ACVF6JsdZPlQYgecJ3M7EhIwIrurFuo7XED1YqME';
+token = 'N5wyRM6SVksfVqJiBG0w307Ql9nJCs2slyJb4I2Np37';
 message = 'HelloWorld';
 
 const lineNotify = (message, file) => {
