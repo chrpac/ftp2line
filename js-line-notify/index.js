@@ -6,6 +6,8 @@ token = '8L5ACVF6JsdZPlQYgecJ3M7EhIwIrurFuo7XED1YqME';
 message = 'HelloWorld';
 
 const lineNotify = (message, file) => {
+  console.log('Message: ', message)
+  console.log('Path: ', file);
   request({
     method: 'POST',
     uri: 'https://notify-api.line.me/api/notify',
@@ -37,5 +39,8 @@ const watcher = chokidar.watch('/usr/src/app/img/', {
 });
 
 watcher
-  .on('change', path => lineNotify('Hello World', path));
+  //.on('change', path => {lineNotify('Hello World', path));
+  .on('change', path => {
+    setTimeout(() => lineNotify('Hello World', path), 3000)
+  });
 
